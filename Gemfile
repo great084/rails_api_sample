@@ -21,6 +21,8 @@ gem 'puma', '~> 4.1'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'devise' # ログイン機能
+gem 'devise_token_auth' # トークン認証
 gem 'active_model_serializers'  # JSONシリアライザ
 gem 'rails-i18n'
 
@@ -35,6 +37,7 @@ group :development, :test do
   gem 'faker'             # ダミーデータの生成
   gem 'pry-byebug'
   gem 'pry-doc'
+  gem 'pry-rails'
 end
 
 group :development do
