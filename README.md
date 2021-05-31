@@ -1,7 +1,7 @@
 ## APIの概要
 
 フロントエンドの検証用としてRailsのAPIモードで作成したAPIになります。
-ログイン認証のためのUserと、User紐づくBookデータを格納しています。
+ログイン認証のためのUserと、User紐づくBookデータ(1:多の関係)を格納しています。
 Bookリソースに悪世するためにはアクセストークンによる認証が必要です。
 トークン認証を実装するために[devise_token_auth](https://devise-token-auth.gitbook.io/devise-token-auth/) gemを利用しています。
 ※フロント側の動作検証時に使い勝手が良いように、access-tokenがリクエストごとに使い回せる設定にしています（devise_token_authデフォルトの設定ではリクエスト毎にaccess-tokenが更新される）
@@ -18,6 +18,15 @@ Heroku上で動いています（Freeeプランなので、スリープ時には
 |---------------------|----------|-----------|
 | test@example.com    | password | Bookデータあり |
 | example@example.com | password | Bookデータなし |
+
+## Bookモデル
+
+| 項目名称 | ID          | 型     | 備考      |
+|----------|-------------|--------|-----------|
+| ユーザーID   | user_id     | bigint | Userと紐づく |
+| タイトル     | title       | string | not null  |
+| 著者     | author      | string | not null  |
+| 説明     | description | text   | not null  |
 
 
 ## 実装API一覧
