@@ -1,14 +1,15 @@
 ## APIの概要
 
-フロントエンドの検証用としてRailsのAPIモードで作成したAPIになります。
-ログイン認証のためのUserと、User紐づくBookデータ(1:多の関係)を格納しています。
-Bookリソースに悪世するためにはアクセストークンによる認証が必要です。
-トークン認証を実装するために[devise_token_auth](https://devise-token-auth.gitbook.io/devise-token-auth/) gemを利用しています。
-※フロント側の動作検証時に使い勝手が良いように、access-tokenがリクエストごとに使い回せる設定にしています（devise_token_authデフォルトの設定ではリクエスト毎にaccess-tokenが更新される）
+フロントエンドの検証用としてRailsのAPIモードで作成したAPIになります。<br>
+ログイン認証のためのUserと、User紐づくBookデータ(1:多の関係)を格納しています。<br>
+Bookリソースに悪世するためにはアクセストークンによる認証が必要です。<br>
+トークン認証を実装するために[devise_token_auth](https://devise-token-auth.gitbook.io/devise-token-auth/) gemを利用しています。<br>
+
+※フロント側の動作検証時に使い勝手が良いように、access-tokenがリクエストごとに使い回せる設定にしています<br>（devise_token_authデフォルトの設定ではリクエスト毎にaccess-tokenが更新される）
 
 ## APIの接続先URL
 
-Heroku上で動いています（Freeeプランなので、スリープ時には復帰に2,30秒かかるかも）
+Heroku上で動いています（Freeeプランなので、スリープ時には復帰に2,30秒かかるかも）<br>
 `https://rails-api-book.herokuapp.com`
 
 ## 作成済みユーザ
@@ -40,7 +41,7 @@ Heroku上で動いています（Freeeプランなので、スリープ時には
 | Book情報更新 | /v1/books/[:id]  | PUT    |
 | Book情報削除 | /v1/books/[:id]  | DELETE |
 
-**「HerokuURL + パス」 が各APIのエンドポイントとなります**
+**「HerokuURL + パス」 が各APIのエンドポイントとなります** <br>
 （Book一覧取得の場合、`https://rails-api-book.herokuapp.com/v1/books`がエントリーポイント）
 
 
@@ -77,7 +78,7 @@ Transfer-Encoding: chunked
 ```
 
 ### access-tokenを利用した認証付きのアクセス
-次回以降のBookリソースに対するアクセスは、ログイン時にレスポンスで返ってきた`access-token`,`token-type`, `client`, `expiry`, `uid`をヘッダーに付与してAPIコールを行います。
+次回以降のBookリソースに対するアクセスは、ログイン時にレスポンスで返ってきた`access-token`,`token-type`, `client`, `expiry`, `uid`をヘッダーに付与してAPIコールを行います。<br>
 以下はBook一覧を取得する場合の例です。
 
 ```
