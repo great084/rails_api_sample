@@ -1,6 +1,8 @@
 FactoryBot.define do
   factory :book do
+    user { nil }
     title { "MyString" }
-    content { "MyText" }
+    author { "MyString" }
+    description { "MyText" }
   end
 end
